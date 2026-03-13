@@ -41,27 +41,17 @@ def simulate_exponential_probability(a, b, n=100000):
 # -------------------------------------------------
 
 def gaussian_pdf(x, mu, sigma):
-    """
-    Return Gaussian PDF.
-    """
     return (1/(np.sqrt(2*np.pi)*sigma)) * np.exp(-(x-mu)**2/(2*sigma**2))
 
 
 def posterior_probability(time):
-    """
-    Compute P(B | X = time)
-    using Bayes rule.
-    """
 
-    # Priors
     pA = 0.3
     pB = 0.7
 
-    # Likelihoods
     fA = gaussian_pdf(time, 40, 2)
     fB = gaussian_pdf(time, 45, 2)
 
-    # Bayes rule
     numerator = pB * fB
     denominator = pA * fA + pB * fB
 
